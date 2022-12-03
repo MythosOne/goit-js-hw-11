@@ -1,4 +1,4 @@
-/* * {
+* {
   box-sizing: border-box;
 }
 
@@ -7,9 +7,25 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
+  background-color: white;
+  color: #2121218e;
   line-height: 1.5;
+}
+
+p {
+  margin: 0;
+}
+
+b {
+  font-size: 14px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 #search-box {
@@ -17,4 +33,58 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
-} */
+}
+
+.search-form {
+  background-color: cornflowerblue;
+  border-radius: 2px;
+  padding: 5px;
+
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.header-search{
+  padding: 10px;
+}
+
+.input-search {
+  width: 170px;
+  height: 22px;
+
+  border: 1px solid rgba(33, 33, 33, .2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.input-search:focus {
+  border-radius: 2px;
+  outline: 2px solid rgb(51, 115, 234);
+}
+
+.photo-card{
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.thumb {
+  width: 240px;
+  height: 160px;
+}
+
+.button-search {
+  border: 2px solid cornflowerblue;
+  margin-left: 5px;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.load-more {
+  border: 2px solid cornflowerblue;
+  border-radius: 2px;
+  background-color: cornflowerblue;
+  color: white;
+
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+}
