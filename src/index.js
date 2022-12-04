@@ -32,7 +32,7 @@ function onSearch(event) {
     event.preventDefault();
     searchQuery = event.target.searchQuery.value;
 
-    apiService(searchQuery, page).then(data => console.log(data));
+    // apiService(searchQuery, page).then(data => console.log(data));
 
     apiService(searchQuery, page)
         .then(data => {
@@ -49,9 +49,9 @@ function onSearch(event) {
 function onLoadMore() {
     page += 1;
     apiService(searchQuery, page).then(data => {
-    console.log(data.hits.length*page);
+    // console.log(data.hits.length*page);
         createGallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
-        if (data.hits.length*page > data.totalHits) {
+        if (data.hits.length * page > data.totalHits) {
             Notiflix.Notify.failure(`We're sorry, but you've reached the end of search results.`);
             loadMoreBtn.style.display = 'none';
         }
