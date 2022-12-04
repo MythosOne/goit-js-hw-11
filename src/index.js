@@ -1,6 +1,8 @@
 import Notiflix from 'notiflix';
 import './css/styles.css';
 import apiService from './apiService.js';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 //https://pixabay.com/api/docs/
 //API key: 31642520-d6a6357411a55db3459510987
@@ -34,7 +36,7 @@ function onSearch(event) {
     searchQuery = event.target.searchQuery.value;
 
     apiService(searchQuery, page).then(data => console.log(data));
-
+    
     apiService(searchQuery, page)
         .then(data => {
             if (!data.hits.length) {
@@ -43,6 +45,7 @@ function onSearch(event) {
                 Notiflix.Notify.info(`Hooray! We found totalHits ${data.totalHits} images.`);
                 loadMoreBtn.style.display = 'block';
             }
+            createGallery.innerHTML = '';
             createGallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
         });
 }
@@ -52,6 +55,11 @@ function onLoadMore() {
     apiService(searchQuery, page).then(data => {
         totalArr += data.hits.length;
         createGallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
+    //     new SimpleLightbox('.gallery a', {
+    //     captionsData: "alt",
+    //     captionPosition: "bottom",
+    //     captionDelay: 250,
+    // });
         if ( totalArr === data.totalHits) {
             Notiflix.Notify.failure(`We're sorry, but you've reached the end of search results.`);
             loadMoreBtn.style.display = 'none';
