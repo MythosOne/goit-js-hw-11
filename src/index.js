@@ -18,6 +18,7 @@ loadMoreBtn.style.display='none';
 
 let searchQuery = '';
 let page = 1;
+let totalArr = 40;
 
 function inputValue(event) {
     const searchValue = event.target.value;
@@ -32,7 +33,7 @@ function onSearch(event) {
     event.preventDefault();
     searchQuery = event.target.searchQuery.value;
 
-    // apiService(searchQuery, page).then(data => console.log(data));
+    apiService(searchQuery, page).then(data => console.log(data));
 
     apiService(searchQuery, page)
         .then(data => {
@@ -49,9 +50,9 @@ function onSearch(event) {
 function onLoadMore() {
     page += 1;
     apiService(searchQuery, page).then(data => {
-    // console.log(data.hits.length*page);
+        totalArr += data.hits.length;
         createGallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
-        if (data.hits.length * page === data.totalHits) {
+        if ( totalArr === data.totalHits) {
             Notiflix.Notify.failure(`We're sorry, but you've reached the end of search results.`);
             loadMoreBtn.style.display = 'none';
         }
