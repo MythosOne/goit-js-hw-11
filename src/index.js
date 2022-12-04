@@ -36,7 +36,7 @@ function onSearch(event) {
     searchQuery = event.target.searchQuery.value;
 
     apiService(searchQuery, page).then(data => console.log(data));
-    
+    page = 1;
     apiService(searchQuery, page)
         .then(data => {
             if (!data.hits.length) {
